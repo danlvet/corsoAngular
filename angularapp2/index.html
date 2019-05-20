@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="overnet">
+<head>
+	<title>Esercizio 1</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+
+	<div ng-controller="userController">
+		<select ng-model="comune" ng-change="stampa()">
+			<option value="1"> Torella dei Lombardi </option>
+			<option value="2"> Torino </option>
+			<option value="3"> Santa Caterina Villarmosa </option>
+		</select>
+	</div>
+
+
+	<div ng-controller="userController2">
+		<input type="number" ng-model="uno">
+		<input type="number" ng-model="due">
+		{{uno+due}}
+	</div>
+
+</body>
+</html>

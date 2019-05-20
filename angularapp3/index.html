@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="overnet">
+<head>
+	<title ng-bind>Prima App</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<div ng-hide="visibile=='Daniele'">
+		Se scrivi Daniele scompare
+	</div>
+	<input type="text" ng-model="visibile">
+
+	<div ng-show="invisibile=='Daniele'">
+		Se scrivi Daniele scompare
+	</div>
+	<input type="text" ng-model="invisibile">
+
+	<div ng-if="ifvisibile!=='Daniele'">
+		Se scrivi Daniele scompare
+	</div>
+	<input type="text" ng-model="ifvisibile">
+</body>
+</html>
