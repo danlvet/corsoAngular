@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app = "overnet">
+<head>
+	<title>Deafult pagina web</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+	<script src="app.js"></script>
+
+</head>
+<body>
+
+	<div ng-include="'./header.html'"></div>
+
+	<div ng-controller="controller"> 
+
+		{{nome}}
+
+	</div>
+
+	<div ng-include="'./footer.html'"></div>
+
+</body>
+</html>

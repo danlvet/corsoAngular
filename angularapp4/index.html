@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app = "overnet">
+<head>
+	<title>Deafult pagina web</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+	<script src="app.js"></script>
+
+</head>
+<body>
+
+	<style type="text/css"> 
+		.blu{
+			background: blue;
+			color:yellow;
+		}
+		.verde{
+			background: green;
+		}
+		.rosso{
+			background: red;
+		}
+	</style>
+
+	<div class="blu"> ciao mondo </div>
+
+	<div ng-include="'./header.html'"></div>
+
+	<span ng-init="varCont='bluu'"></span>
+	<!-- equivale a fare nel controller $scope.varCont='blu'-->
+
+	<div ng-class="varCont"> ciao mondo angular </div>
+	<!-- ng class accetta una variabile-->
+
+	<div class="{{(varCont=='blu')?'verde':'rosso'}}"> ciao mondo </div>
+	<!-- class accetta una stringa -->
+
+	<div ng-controller="controller"> 
+
+		{{nome}}
+
+	</div>
+
+	<div ng-include="'./footer.html'"></div>
+
+	<div ng-controller="controller2"> 
+
+		<ul>
+			<li ng-repeat="nome in elencoNomi track by $index"> {{$index}}:{{nome}} </li>
+		</ul>
+
+	</div>
+
+
+	<div ng-controller="controller3">
+		<table border="1">
+			<thead>
+				<tr>
+					<th>Indice</th>
+					<th>nome</th>
+					<th>cognome</th>
+					<th>citta</th>
+				</tr>
+				<tr ng-repeat="persona in persone">
+					<td> {{$index}} </td>
+					<td> {{persona.nome}} </td>
+					<td> {{persona.cognome}} </td>
+					<td>{{persona.citta}} </td>
+					</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+</body>
+</html>

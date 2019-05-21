@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="optionsEx">
+<head>
+	<title ng-bind="'Prima App'"></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+	<script src="app.js"></script>
+</head>
+<body ng-controller="primoController as pctrl">
+	
+<!-- soluzione di ieri -->
+<select ng-model="valoreSelezionato">
+	<option ng-repeat="x in valori" value="{{x.id}}">
+			
+		{{x.value}}
+
+	</option>
+</select>
+<br>
+{{valoreSelezionato}}
+
+<!-- ng-options ha come valore l'intero oggetto-->
+<select ng-model="valoreSelezionatoNuovo" ng-options="iteratore.value for iteratore in valori">
+	<option>
+	</option>
+</select>
+<br>
+{{valoreSelezionatoNuovo}}
+
+
+<!-- ng-options ha come valore solo l'id-->
+<select ng-init="valoreSelezionatoNuovoBis=3" ng-model="valoreSelezionatoNuovoBis" ng-options="iteratore.id as iteratore.value for iteratore in valori">
+	<option>
+	</option>
+</select>
+<br>
+{{valoreSelezionatoNuovoBis}}
+
+<select ng-model="selectedItem" ng-options="citta.nome as citta.nome group by citta.regione for citta in elencoCitta"></select>
+
+<button ng-click="somma($event)">Somma</button>
+
+{{risultato}}
+
+<p>{{"Hello Angular" | uppercase | lowercase | limitTo:5 }} </p>
+<p>{{elencoCitta | limitTo:5}}
+
+</body>
+</html>
