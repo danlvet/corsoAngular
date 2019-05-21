@@ -33,4 +33,27 @@ app.controller("primoController", function($scope){
 		console.log(event)
 	}
 
-	})
+	$scope.dataOra = new Date();
+
+	//momentjs e introjs 
+
+	});
+
+
+app.controller("filtroController", function($scope,lowercaseFilter, dateFilter){
+
+	$scope.test = lowercaseFilter("TEST");
+
+	$scope.adesso = new Date();
+
+	dateFilter($scope.adesso, "fullDate")
+	//in html è {{adesso | date:"fullDate"}}
+
+	$scope.valori = [
+	{ id: 1, value:"rosso"},
+	{ id: 2, value:"verde"},
+	{ id: 3, value:"blu"},
+	{ id: 4, value:"giallo"},
+	{ id: 5, value:"rosa"}
+	];
+});

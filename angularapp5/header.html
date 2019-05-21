@@ -4,6 +4,7 @@
 	<title ng-bind="'Prima App'"></title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
 	<script src="app.js"></script>
+	<script src="filter.js"></script>
 </head>
 <body ng-controller="primoController as pctrl">
 	
@@ -42,7 +43,51 @@
 {{risultato}}
 
 <p>{{"Hello Angular" | uppercase | lowercase | limitTo:5 }} </p>
-<p>{{elencoCitta | limitTo:5}}
+<p>{{elencoCitta | limitTo:1}}
+
+<p> {{3.14159 | number}} </p>
+<p> {{3.14159 | number:2}} </p>
+<p> {{3.14159 | number:0}} </p>
+
+<p> {{1200.45 | currency}} </p>
+
+<p> {{1200.45 | currency:"&euro;":0}} </p>
+
+<p> {{1200.45 | currency:"&agrave;":0}} </p>
+
+<p> {{dataOra}} </p>
+<p> {{dataOra | date}} </p>
+
+<p>{{[5,3,6,1] | orderBy}}</p>
+
+<ul>
+	<p>Ordino le citta per nome</p>
+	<li ng-repeat="citta in elencoCitta | orderBy:'nome'">  {{citta.nome}} </li>
+</ul>
+
+<ul>
+	<p>Filtro le citta la cui regione e Sicilia</p>
+	<li ng-repeat="citta in elencoCitta | filter:{regione:'Sicilia'}">  {{citta.nome}} </li>
+</ul>
+
+<ul>
+	<p>Filtro le citta le cui regioni hanno la L</p>
+	<li ng-repeat="citta in elencoCitta | filter:{regione:'L'}">  {{citta.nome}} </li>
+</ul>
+
+<div ng-controller="filtroController">
+
+{{test}} <br>
+{{adesso}} <br>
+
+{{"daniele lo vetere" | capitalize}}
+ </div>
+<br>
+
+{{333}}
+{{333 | italianformat}}
+{{2462.23 | eurize}}
+
 
 </body>
 </html>
