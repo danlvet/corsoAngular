@@ -5,9 +5,9 @@
 	<div ng-controller="dettaglio"> {{dettaglioUtente}} </div>
 
 	<div ng-controller="dettaglio">
-  <form name="form" class="css-form" novalidate>
+  <form name="form" class="css-form" ng-submit="inviaDati()" novalidate>
     <label>Name:
-      <input type="text" ng-model="user.name" name="uName" required="" />
+      <input type="text" ng-model="toSend.nome" name="uName" required="true" />
     </label>
     <br />
     <div ng-show="form.$submitted || form.uName.$touched">
@@ -15,7 +15,7 @@
     </div>
 
     <label>E-mail:
-      <input type="email" ng-model="user.email" name="uEmail" required="" />
+      <input type="email" ng-model="toSend.email" name="uEmail" required="true" />
     </label>
     <br />
     <div ng-show="form.$submitted || form.uEmail.$touched">
@@ -24,12 +24,12 @@
     </div>
 
 	<textarea ng-model="toSend.title" name="msg" rows="8" cols="50"
-          class="input-no-width rounded shaded left clearboth" id="msg" required> 
+          class="input-no-width rounded shaded left clearboth" id="msg" required="true"> 
 	</textarea>
 	<br>
 	<span ng-show="form.msg.$error.required">Modify new title.</span>
 
-    <input type="submit" ng-click="inviaDati()" value="Save" />
+    <input type="submit" value="Save" />
   </form>
 
 </div>
