@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="asd">
+<head>
+	<title ng-bind="'Prima Direttiva'"></title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"> </script>
+	<script src="app.js"></script>
+</head>
+<body>
+	<date-picker language="IT"></date-picker>
+
+	<date-picker language="EN"></date-picker>
+
+
+
+	<script type="text/ng-template" id="templateInline.html">
+
+	<div ng-controller="direttivaController as dCtrl">
+
+<div ng-if="language=='IT'">
+	
+
+	{{data}} Con la inline
+
+
+</div>
+
+<div ng-if="language=='EN'">
+	
+
+	{{dataEN}}
+
+
+</div>	
+
+	</script>
+
+<date-pickerinline language="IT"></date-pickerinline>
+
+	<date-pickerinline language="EN"></date-pickerinline>
+
+</body>
+</html>

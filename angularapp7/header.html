@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<html ng-app="form">
+<head>
+	<title ng-bind="'Primo form'"></title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+<script src="app.js"></script>
+<body>
+
+
+<form name="myForm" novalidate>
+	<input 
+	type="text" 
+	name="nomeUtente"
+	ng-model="utente.nome"
+	ng-maxlength="20"
+	ng-required="true"
+	ng-class="{'': myForm.nomeUtente.$pristine,
+	'validClass': myForm.nomeUtente.$valid,
+	'invalidClass': myForm.nomeUtente.$invalid}"
+	>
+
+	<div ng-show="myForm.nomeUtente.$invalid">
+		Il nome utente &egrave;  obbligatorio e non puo superare i 20 caratteri
+	</div>
+
+	<div ng-show="myForm.nomeUtente.$error.maxlength">
+		Il nome utente non puo superare i 20 caratteri
+	</div>
+
+	<div ng-show="myForm.nomeUtente.$error.required">
+		Il nome utente &egrave; obbligatorio
+	</div>
+</form>
+
+<form ng-controller="ciao" name="myForm2" ng-submit="invia(utente)" novalidate>
+	<input 
+	type="text" 
+	name="nomeUtente"
+	ng-model="utente.nome"
+	ng-maxlength="20"
+	ng-required="true"/>
+
+	<div ng-show="myForm.nomeUtente.$invalid">
+		Il nome utente &egrave;  obbligatorio e non puo superare i 20 caratteri
+	</div>
+
+	<button type="submit"> Invia </button>
+</form>
+
+
+
+
+</body>
+</html>

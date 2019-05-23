@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app = "myApp">
+<head>
+	<title data-ng-bind="'Apply e contesto'"></title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+	<script src="app.js"></script>
+
+</head>
+<body>
+
+	<div data-ng-controller="myCtrl">
+		Numero: <input type="text" data-ng-model="numero" name="">
+	 </br>
+
+	<button id="btnRaddoppia">Raddoppia</button></br>
+	<span>{{doppio}}</span>
+	</div>
+
+
+<!-- 	<script type="text/javascript">
+		angular.module('myApp', [])
+		.controller("myCtrl", function($scope) {
+			document.getElementById("btnRaddoppia")
+			.addEventListener("click", function() {
+				$scope.doppio=$scope.numero*2;
+			});
+		});
+	</script> -->
+
+
+<!--forza il ciclo di digest (ricarica tutte le variabili) -->
+ <script type="text/javascript">
+		angular.module('myApp', [])
+		.controller("myCtrl", function($scope) {
+			document.getElementById("btnRaddoppia")
+			.addEventListener("click", function() {
+				$scope.$apply(function() {
+					$scope.doppio=$scope.numero*2;
+				})
+			});
+		});
+</script>
+
+
+
+</body>
+</html>

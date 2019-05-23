@@ -89,5 +89,38 @@
 {{2462.23 | eurize}}
 
 
+<div ng-controller="http">
+	<table border="1">
+		<thead>
+			<tr>
+				<th>userid</th>
+				<th>id</th>
+				<th>title</th>
+				<th>completed</th>
+			</tr>
+			<tr ng-repeat="dati in data">
+				<td> {{dati.userId}} </td>
+				<td> {{dati.id}} </td>
+				<td> {{dati.title}} </td>
+				<td> {{dati.completed}} </td>
+			</tr>
+		</thead>
+	</table>
+</div>
+
+
+<p ng-controller="httppost"> {{data}} </p>
+
+
+<div titolo></div>
+<titolo></titolo>
+
+<titoloentrambi></titoloentrambi>
+<div titoloentrambi></div>
+
+<div ng-init="nome ='sdfg'; cognome='sdfbsdvds'" ng-controller="testCtrl">
+<titolocustom uno="nome" due="{{cognome}}"></titolocustom>
+</div>
+
 </body>
 </html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<html ng-app="form">
+<head>
+	<title ng-bind="'Primo form'"></title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js"></script>
+<script src="app.js"></script>
+<body ng-controller="ciao">
+
+<style>
+	
+	.validClass{
+		border:1px solid green;
+	}
+	.invalidclass{
+		border: 1px solid red;
+	}
+
+</style>
+
+
+<form novalidate name="myForm" >
+  <label>
+    <input type="radio" ng-model="tipologia" ng-value="'Azienda'">
+    Azienda
+  </label><br/>
+  <label>
+    <input type="radio" ng-model="tipologia" ng-value="'Privato'">
+    Privato
+  </label><br/>
+
+
+
+ 
+ 	<input 
+ 		ng-if="tipologia=='Privato'"
+		type="text" 
+		name="nomeUtente"
+		ng-model="utente.nome"
+		placeholder="Inserisci il tuo nome" 
+		ng-maxlength="20"
+		ng-required="true"
+		ng-class="{'': myForm.nomeUtente.$pristine,
+		'validClass': myForm.nomeUtente.$valid,
+		'invalidClass': myForm.nomeUtente.$invalid}"
+	>
+
+	 	<input 
+ 		ng-if="tipologia=='Privato'"
+		type="text" 
+		name="nomeUtente"
+		ng-model="utente.cognome"
+		placeholder="Inserisci il tuo cognome" 
+		ng-maxlength="20"
+		ng-required="true"
+		ng-class="{'': myForm.nomeUtente.$pristine,
+		'validClass': myForm.nomeUtente.$valid,
+		'invalidClass': myForm.nomeUtente.$invalid}"
+	>
+
+	 	<input 
+ 		class="{{(myForm.pmail.$validate)?'valido':'nonvalido'}}"
+ 		ng-if="tipologia=='Privato'"
+		type="email" 
+		name="pmail"
+		ng-model="utente.mail"
+		placeholder="Inserisci la tua mail" 
+		ng-maxlength="20"
+		ng-required="true"
+		ng-class="{'': myForm.pmail.$pristine,
+		'validClass': myForm.pmail.$valid,
+		'invalidClass': myForm.pmail.$invalid}"
+	>
+
+	<input 
+		ng-if="tipologia=='Azienda'"
+		type="text" 
+		name="ragioneSociale"
+		ng-model="utente.ragioneSociale"
+		placeholder="Inserisci la tua ragione sociale" 
+		ng-maxlength="20"
+		ng-required="true"
+		ng-class="{'': myForm.ragioneSociale.$pristine,
+		'validClass': myForm.ragioneSociale.$valid,
+		'invalidClass': myForm.ragioneSociale.$invalid}"
+	>
+
+		<input 
+		ng-if="tipologia=='Azienda'"
+		type="email" 
+		name="amail"
+		ng-model="utente.mailAziendale"
+		placeholder="Inserisci la tua pec aziendale" 
+		ng-maxlength="20"
+		ng-required="true"
+		ng-class="{'': myForm.amail.$pristine,
+		'validClass': myForm.amail.$valid,
+		'invalidClass': myForm.amail.$invalid}"
+	>
+
+		<input 
+		ng-if="tipologia=='Azienda'"
+		type="text" 
+		name="ragioneSociale"
+		ng-model="utente.nome"
+		placeholder="Inserisci la tua partita IVA" 
+		ng-maxlength="20"
+		ng-required="true"
+		ng-class="{'': myForm.ragioneSociale.$pristine,
+		'validClass': myForm.ragioneSociale.$valid,
+		'invalidClass': !myForm.ragioneSociale.$valid}"
+	>
+
+
+
+<button ng-click="invia()"> Invia </button>
+
+ </form>
+
+</body>
+
+</html>

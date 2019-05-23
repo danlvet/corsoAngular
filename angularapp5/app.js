@@ -57,3 +57,92 @@ app.controller("filtroController", function($scope,lowercaseFilter, dateFilter){
 	{ id: 5, value:"rosa"}
 	];
 });
+
+
+app.controller("serviceFactory",function(matFactory, matService){
+
+});
+
+app.controller("http",function($scope,$http){
+
+	$http.get("https://jsonplaceholder.typicode.com/todos").then(
+		//primo parametro then
+		function successCallbach(datiRicevutiDalBackend) {
+			$scope.data=datiRicevutiDalBackend.data;
+			$scope.richiesta=datiRicevutiDalBackend;
+		});
+		//secondo parametro then
+		function errorCallbeck(response) {
+			alert("Si è verificato un errore!");
+		}
+})
+
+app.controller("httppost",function($scope,$http){
+
+	$http.post("https://jsonplaceholder.typicode.com/posts",{'iduser':1}).then(
+		//primo parametro then
+		function successCallbach(data) {
+			$scope.data=data.data;
+		});
+		//secondo parametro then
+		function errorCallbeck(response) {
+			alert("Si è verificato un errore!");
+		}
+})
+
+
+//questo è un nuovo tag
+app.directive("titolo", function() {
+	return {
+		restrict: "E",
+		template: "<h1>Questo e un titolo elemento</h1>"
+	};
+});
+
+
+app.directive("titolo", function() {
+	return {
+		restrict: "A",
+		template: "<h1>Questo e un titolo attributo!!!</h1>"
+	};
+});
+
+app.directive("titoloentrambi", function() {
+	return {
+		restrict: "EA",
+		template: "<h1>Questo e un titolo sia attributo che elemento</h1>"
+	};
+});
+
+app.controller("testCtrl", function($rootScope) {
+	$rootScope.nome="NFEWLO"
+	$rootScope.cognome="qwerty"
+});
+
+
+app.directive("titolocustom", function($rootScope) {
+	return {
+		restrict: "EAC",
+		template: "<h1>Questo e un titolo {{uno}} {{due}}</h1>",
+		scope: {
+			uno: "=",
+			due: "@"
+		}
+	};
+});
+
+
+
+
+app.directive("dataPicker", function() {
+return {
+	restrict: "AE",
+	templateUrl:"templatedirettiva.html"
+}
+
+})
+
+
+app.controller("direttivaController", function() {
+	$scope.data = '22/05/2019';
+})

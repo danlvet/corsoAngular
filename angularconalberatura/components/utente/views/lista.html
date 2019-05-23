@@ -1,0 +1,24 @@
+<div ng-controller="http">
+	<table border="1">
+		<thead ng-init="filtro={}">
+			<tr>
+				<th><input type="text" ng-model="filtro.userId"></th>
+				<th><input type="text" ng-model="filtro.id"></th>
+				<th><input type="text" ng-model="filtro.title"></th>
+				<th><input type="text" ng-model="filtro.completed"></th>
+			</tr>
+			<tr>
+				<th>userid</th>
+				<th>id</th>
+				<th>title</th>
+				<th>completed</th>
+			</tr>
+			<tr ng-repeat="dati in data | filter:filtro">
+				<td> {{dati.userId }} </td>
+				<td> <a href="#!/dettaglio/{{dati.id}}"> {{dati.id}} </a> </td>
+				<td> {{dati.title}} </td>
+				<td> {{dati.completed}} </td>
+			</tr>
+		</thead>
+	</table>
+</div>

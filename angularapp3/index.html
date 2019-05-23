@@ -20,5 +20,16 @@
 		Se scrivi Daniele scompare
 	</div>
 	<input type="text" ng-model="ifvisibile">
+
+	<p> Colore: <input type="text" ng-model="colore"> </p>
+	<div ng-if="colore=='rosso'" style="color:red"> {{colore}} </div>
+	<div ng-if="colore=='verde'" style="color:green"> {{colore}} </div>
+	<div ng-if="colore=='blu'" style="color:blue"> {{colore}} </div>
+	<div ng-if="colore!='rosso'&&colore!='verde'&&colore!='blu'"
+	style="black"> {{colore}}</div>
+
+	<div ng-include="'./header.html'"></div>
+		
+	
 </body>
 </html>
